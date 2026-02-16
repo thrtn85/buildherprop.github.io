@@ -5,7 +5,7 @@
     ============================================= */
 :root {
     /* Brand Colors - pulled from the logo */
-    --color-primary: #0a1d6f;
+    --color-primary: #09206C;
     --color-accent-light: #428aa1;
     --color-dark: #112a45;
     --color-body: #1a1c1d;
@@ -179,6 +179,7 @@ a {
     color: var(--color-white);
     margin-bottom: 20px;
     line-height: 1.2;
+    letter-spacing: 0.15rem;
 }
 
 .hero__subtitle {
@@ -396,7 +397,7 @@ a {
 }
 
 /* Footer logo */
-.footer__logo img {
+img.footer__logo  {
     height: 75px;
     width: auto;
     margin: 0 auto 20px;
@@ -420,10 +421,22 @@ a {
     RESPONSIVE DESIGN
     ============================================= */
 
+body {
+    min-width: 350px;
+}
+
 /* Tablet */
 @media (max-width: 900px) {
-    .services__grid {
-        grid-template-columns: repeat(2, 1fr);
+    .hero {
+        min-height: 65vh;
+    }
+
+    .hero__title {
+        font-size: 2.8rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1.15rem;
     }
 
     .about .container {
@@ -431,16 +444,46 @@ a {
         gap: 40px;
     }
 
-    .hero__title {
-        font-size: 2.5rem;
+    .about__image {
+        height: 350px;
+    }
+
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta {
+        padding: 70px 0;
+    }
+
+    .cta h3 {
+        font-size: 1.4rem;
+    }
+
+    .cta p,
+    .cta__phone {
+        font-size: 1.5rem;
     }
 }
 
 /* Phone */
 @media (max-width: 600px) {
-    body {
-        min-width: 350px;
+    .navbar .container {
+        flex-wrap: wrap;
     }
+
+    .navbar__toggle {
+        display: block;
+    }
+
+    .navbar__logo img {
+        height: 75px;
+    }
+
     .navbar__links {
         display: none;
         flex-direction: column;
@@ -457,16 +500,8 @@ a {
         padding: 12px 0;
     }
 
-    .navbar .container {
-        flex-wrap: wrap;
-    }
-
-    .navbar__toggle {
-        display: block;
-    }
-
-    .navbar__logo img {
-        height: 75px;
+    .hero {
+        min-height: 55vh;
     }
 
     .hero__title {
@@ -477,17 +512,50 @@ a {
         font-size: 1rem;
     }
 
-    .services__grid {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery__grid {
-        grid-template-columns: 1fr;
+    .about__image {
+        height: 280px;
     }
 
     .section-header h2,
     .about__text h2,
     .cta h2 {
         font-size: 1.7rem;
+    }
+
+    .section-header p {
+        font-size: 1.05rem;
+    }
+
+    .services__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 25px 20px;
+    }
+
+    .gallery__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery__item {
+        height: 220px;
+    }
+
+    .cta {
+        padding: 60px 0;
+    }
+
+    .cta h3 {
+        font-size: 1.2rem;
+    }
+
+    .cta p,
+    .cta__phone {
+        font-size: 1.3rem;
+    }
+
+    .footer {
+        padding: 30px 0;
     }
 }
