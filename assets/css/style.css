@@ -1,0 +1,493 @@
+/* =============================================
+    CSS RESET & VARIABLES
+    - Colors now match the Build-Her logo:
+        navy blue, steel blue, and slate accents
+    ============================================= */
+:root {
+    /* Brand Colors - pulled from the logo */
+    --color-primary: #0a1d6f;
+    --color-accent-light: #428aa1;
+    --color-dark: #112a45;
+    --color-body: #1a1c1d;
+    --color-light: #f4f7fa;
+    --color-white: #ffffff;
+    --color-muted: #7a8d9e;
+
+    /* Fonts */
+    --font-heading: "Outfit", sans-serif;
+    --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+    --font-h2: 2.6rem;
+
+    /* Spacing */
+    --section-padding: 80px 0;
+    --container-width: 1100px;
+}
+
+/* Basic reset so all browsers start from the same place */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-body);
+    line-height: 1.7;
+    background-color: var(--color-light);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =============================================
+    NAVIGATION BAR
+    - Logo IMAGE on the left, links on the right
+    ============================================= */
+.navbar {
+    background-color: var(--color-white);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(27, 58, 92, 0.08);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo is now a real image instead of a placeholder box */
+.navbar__logo img {
+    height: 125px;
+    width: auto;
+}
+
+.navbar__links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+.navbar__links a {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Underline animation on hover */
+.navbar__links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-light);
+    transition: width 0.3s ease;
+}
+
+.navbar__links a:hover {
+    color: var(--color-accent-light);
+}
+
+.navbar__links a:hover::after {
+    width: 100%;
+}
+
+/* Mobile menu toggle - hidden on desktop */
+.navbar__toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+/* =============================================
+    HERO SECTION
+    ============================================= */
+.hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 50%, #1a3250 100%);
+    background-image: url('/assets/images/rowhouse-224442_1280-1024x680.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 42, 69, 0.55);
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 950px;
+    padding: 0 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero__title {
+    font-family: var(--font-heading);
+    font-size: 4.2rem;
+    color: var(--color-white);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero__subtitle {
+    font-size: 1.35rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================
+    ABOUT SECTION
+    ============================================= */
+.about {
+    padding: var(--section-padding);
+    background-color: var(--color-white);
+}
+
+.about .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about__image {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(27, 58, 92, 0.1);
+}
+.about__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+.about__text h2 {
+    font-family: var(--font-heading);
+    font-size: var(--font-h2);
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.about__text p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--color-body);
+}
+
+/* =============================================
+    SERVICES SECTION
+    ============================================= */
+.services {
+    padding: var(--section-padding);
+    background-color: var(--color-light);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: var(--font-h2);
+    color: var(--color-primary);
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--color-body);
+    max-width: 550px;
+    margin: 0 auto;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background-color: var(--color-white);
+    padding: 35px 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(27, 58, 92, 0.06);
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(27, 58, 92, 0.1);
+}
+
+/* Icon circle - brand blue gradient */
+.service-card__icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.3rem;
+    color: var(--color-accent-light)
+}
+
+.service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.service-card p {
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+
+/* =============================================
+    GALLERY SECTION
+    ============================================= */
+.gallery {
+    padding: var(--section-padding);
+    background-color: var(--color-white);
+}
+
+.gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery__item {
+    height: 280px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.gallery__item:hover {
+    transform: scale(1.02);
+}
+.gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =============================================
+    CTA (CALL TO ACTION) SECTION
+    ============================================= */
+.cta {
+    padding: 90px 0;
+    background-color: var(--color-primary);
+    text-align: center;
+    color: var(--color-white);
+}
+
+.cta h2 {
+    font-family: var(--font-heading);
+    font-size: var(--font-h2);
+    margin-bottom: 10px;
+}
+
+.cta h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    color: var(--color-accent-light);
+}
+
+.cta p {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cta__phone {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-accent-light);
+    letter-spacing: 1px;
+}
+
+/* =============================================
+    FOOTER
+    ============================================= */
+.footer {
+    background-color: var(--color-accent-light);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Footer logo */
+.footer__logo img {
+    height: 75px;
+    width: auto;
+    margin: 0 auto 20px;
+}
+
+.footer p {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.footer a {
+    color: var(--color-light);
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--color-white);
+}
+
+/* =============================================
+    RESPONSIVE DESIGN
+    ============================================= */
+
+/* Tablet */
+@media (max-width: 900px) {
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero__title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+    body {
+        min-width: 350px;
+    }
+    .navbar__links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        padding: 10px 0;
+    }
+
+    .navbar__links.open {
+        display: flex;
+    }
+
+    .navbar__links a {
+        padding: 12px 0;
+    }
+
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+
+    .navbar__toggle {
+        display: block;
+    }
+
+    .navbar__logo img {
+        height: 75px;
+    }
+
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+
+    .services__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header h2,
+    .about__text h2,
+    .cta h2 {
+        font-size: 1.7rem;
+    }
+}
